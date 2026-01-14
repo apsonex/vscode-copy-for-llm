@@ -1,0 +1,61 @@
+{
+  "name": "copy-for-llm",
+  "displayName": "copy-for-llm",
+  "description": "Copy files/folders formatted for LLM input directly to clipboard",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.108.0"
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onCommand:copy-for-llm.copyFiles",
+    "onCommand:copy-for-llm.openSelection"
+  ],
+  "categories": ["Other"],
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "pnpm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.108.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.2",
+    "sinon": "^21.0.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "open": "^11.0.0"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "copy-for-llm.copyFiles",
+        "title": "Copy-for-LLM: Copy Files for LLM"
+      },
+      {
+        "command": "copy-for-llm.openSelection",
+        "title": "Copy-for-LLM: Open Selected Code in ChatGPT"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "copy-for-llm.copyFiles",
+          "title": "Copy-for-LLM: Copy Files for LLM"
+        },
+        {
+          "command": "copy-for-llm.openSelection",
+          "title": "Copy-for-LLM: Open Selected Code in ChatGPT"
+        }
+      ],
+      "commandPalette": [
+        { "command": "copy-for-llm.copyFiles" },
+        { "command": "copy-for-llm.openSelection" }
+      ]
+    }
+  }
+}
