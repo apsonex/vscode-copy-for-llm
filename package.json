@@ -40,31 +40,31 @@
   "contributes": {
     "commands": [
       {
-        "command": "copy-for-llm.copyFiles",
+        "command": "copy-code-for-llm.copyFiles",
         "title": "Copy-for-LLM: Copy Files for LLM"
       },
       {
-        "command": "copy-for-llm.openSelection",
+        "command": "copy-code-for-llm.openSelection",
         "title": "Copy-for-LLM: Open Selected Code in ChatGPT"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "copy-for-llm.copyFiles",
+          "command": "copy-code-for-llm.copyFiles",
           "title": "Copy-for-LLM: Copy Files for LLM"
         },
         {
-          "command": "copy-for-llm.openSelection",
+          "command": "copy-code-for-llm.openSelection",
           "title": "Copy-for-LLM: Open Selected Code in ChatGPT"
         }
       ],
       "commandPalette": [
         {
-          "command": "copy-for-llm.copyFiles"
+          "command": "copy-code-for-llm.copyFiles"
         },
         {
-          "command": "copy-for-llm.openSelection"
+          "command": "copy-code-for-llm.openSelection"
         }
       ]
     }
