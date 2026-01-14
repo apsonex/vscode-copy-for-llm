@@ -1,5 +1,5 @@
 {
-  "name": "copy-for-llm",
+  "name": "copy-code-for-llm",
   "publisher": "apsonex",
   "displayName": "Copy Code For LLM",
   "description": "Copy files/folders formatted for LLM input directly to clipboard",
