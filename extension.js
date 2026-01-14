@@ -1,14 +1,14 @@
 const vscode = require('vscode');
 const fs = require('fs');
 const path = require('path');
-const { flatten } = require('lodash');
 
 function activate(context) {
 	// --------------------------
 	// 1️⃣ Copy files/folders to clipboard in LLM format
 	// --------------------------
 	const disposableCopyFiles = vscode.commands.registerCommand('copy-code-for-llm.copyFiles', async (...args) => {
-		const uris = flatten(args);
+		// flatten the array of arrays
+		const uris = args.flat(Infinity);
 
 		if (!uris || uris.length === 0) {
 			vscode.window.showInformationMessage('No files or folders selected in Explorer.');
@@ -16,20 +16,28 @@ function activate(context) {
 		}
 
 		const workspaceFolder = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
-
 		if (!workspaceFolder) {
 			vscode.window.showErrorMessage('Please open a workspace folder first.');
 			return;
 		}
 
 		const allFiles = [];
+		const processedPaths = new Set(); // <-- temp cache for processed file paths
 
 		for (const uri of uris) {
 			const stats = fs.statSync(uri.fsPath);
 			if (stats.isDirectory()) {
-				allFiles.push(...getAllFiles(uri.fsPath));
+				for (const file of getAllFiles(uri.fsPath)) {
+					if (!processedPaths.has(file)) {
+						allFiles.push(file);
+						processedPaths.add(file);
+					}
+				}
 			} else if (stats.isFile()) {
-				allFiles.push(uri.fsPath);
+				if (!processedPaths.has(uri.fsPath)) {
+					allFiles.push(uri.fsPath);
+					processedPaths.add(uri.fsPath);
+				}
 			}
 		}
 

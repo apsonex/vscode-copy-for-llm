@@ -3,7 +3,7 @@
   "publisher": "apsonex",
   "displayName": "Copy Code For LLM",
   "description": "Copy files/folders formatted for LLM input directly to clipboard",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/apsonex/vscode-copy-for-llm.git"
@@ -20,22 +20,19 @@
     "Other"
   ],
   "scripts": {
+    "package": "pnpm vsce package",
     "lint": "eslint .",
     "pretest": "pnpm run lint",
     "test": "vscode-test"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
-    "@types/node": "22.x",
-    "@types/vscode": "^1.108.0",
+    "@types/node": "~22.19.6",
+    "@types/vscode": "^1.108.1",
     "@vscode/test-cli": "^0.0.12",
     "@vscode/test-electron": "^2.5.2",
     "eslint": "^9.39.2",
     "sinon": "^21.0.1"
-  },
-  "dependencies": {
-    "lodash": "^4.17.21",
-    "open": "^11.0.0"
   },
   "contributes": {
     "commands": [
