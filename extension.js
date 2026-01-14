@@ -7,7 +7,7 @@ function activate(context) {
 	// --------------------------
 	// 1️⃣ Copy files/folders to clipboard in LLM format
 	// --------------------------
-	const disposableCopyFiles = vscode.commands.registerCommand('copy-for-llm.copyFiles', async (...args) => {
+	const disposableCopyFiles = vscode.commands.registerCommand('copy-code-for-llm.copyFiles', async (...args) => {
 		const uris = flatten(args);
 
 		if (!uris || uris.length === 0) {
@@ -50,7 +50,7 @@ function activate(context) {
 	// --------------------------
 	// 2️⃣ Open selected code in ChatGPT chat
 	// --------------------------
-	const disposableOpenChatGPT = vscode.commands.registerCommand('copy-for-llm.openSelection', async () => {
+	const disposableOpenChatGPT = vscode.commands.registerCommand('copy-code-for-llm.openSelection', async () => {
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) return;
 

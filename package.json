@@ -1,17 +1,24 @@
 {
   "name": "copy-for-llm",
-  "displayName": "copy-for-llm",
+  "publisher": "apsonex",
+  "displayName": "Copy Code For LLM",
   "description": "Copy files/folders formatted for LLM input directly to clipboard",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apsonex/vscode-copy-for-llm.git"
+  },
   "engines": {
     "vscode": "^1.108.0"
   },
   "main": "./extension.js",
   "activationEvents": [
-    "onCommand:copy-for-llm.copyFiles",
-    "onCommand:copy-for-llm.openSelection"
+    "onCommand:copy-code-for-llm.copyFiles",
+    "onCommand:copy-code-for-llm.openSelection"
   ],
-  "categories": ["Other"],
+  "categories": [
+    "Other"
+  ],
   "scripts": {
     "lint": "eslint .",
     "pretest": "pnpm run lint",
@@ -53,8 +60,12 @@
         }
       ],
       "commandPalette": [
-        { "command": "copy-for-llm.copyFiles" },
-        { "command": "copy-for-llm.openSelection" }
+        {
+          "command": "copy-for-llm.copyFiles"
+        },
+        {
+          "command": "copy-for-llm.openSelection"
+        }
       ]
     }
   }
