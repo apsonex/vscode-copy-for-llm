@@ -3,7 +3,7 @@
   "publisher": "apsonex",
   "displayName": "Copy Code For LLM",
   "description": "Copy files/folders formatted for LLM input directly to clipboard",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/apsonex/vscode-copy-for-llm.git"
@@ -38,22 +38,22 @@
     "commands": [
       {
         "command": "copy-code-for-llm.copyFiles",
-        "title": "Copy-for-LLM: Copy Files for LLM"
+        "title": "Copy: LLM"
       },
       {
         "command": "copy-code-for-llm.openSelection",
-        "title": "Copy-for-LLM: Open Selected Code in ChatGPT"
+        "title": "Copy: To ChatGPT"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "command": "copy-code-for-llm.copyFiles",
-          "title": "Copy-for-LLM: Copy Files for LLM"
+          "title": "Copy: LLM"
         },
         {
           "command": "copy-code-for-llm.openSelection",
-          "title": "Copy-for-LLM: Open Selected Code in ChatGPT"
+          "title": "Copy: To ChatGPT"
         }
       ],
       "commandPalette": [
