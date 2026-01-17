@@ -20,14 +20,14 @@
     "Other"
   ],
   "scripts": {
-    "package": "pnpm vsce package",
+    "package": "vsce package",
     "lint": "eslint .",
     "pretest": "pnpm run lint",
     "test": "vscode-test"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
-    "@types/node": "~22.19.6",
+    "@types/node": "~22.19.7",
     "@types/vscode": "^1.108.1",
     "@vscode/test-cli": "^0.0.12",
     "@vscode/test-electron": "^2.5.2",
@@ -50,10 +50,14 @@
         {
           "command": "copy-code-for-llm.copyFiles",
           "title": "Copy: LLM"
-        },
+        }
+      ],
+      "editor/context": [
         {
           "command": "copy-code-for-llm.openSelection",
-          "title": "Copy: To ChatGPT"
+          "title": "Copy: To ChatGPT",
+          "when": "editorHasSelection",
+          "group": "navigation"
         }
       ],
       "commandPalette": [
