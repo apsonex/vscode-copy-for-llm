@@ -3,7 +3,7 @@
   "publisher": "apsonex",
   "displayName": "Copy Code For LLM",
   "description": "Copy files/folders formatted for LLM input directly to clipboard",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/apsonex/vscode-copy-for-llm.git"

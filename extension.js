@@ -8,10 +8,20 @@ function activate(context) {
 	// --------------------------
 	const disposableCopyFiles = vscode.commands.registerCommand('copy-code-for-llm.copyFiles', async (...args) => {
 		// flatten the array of arrays
-		const uris = args.flat(Infinity);
+		let uris = args.flat(Infinity);
 
-		if (!uris || uris.length === 0) {
-			vscode.window.showInformationMessage('No files or folders selected in Explorer.');
+		// 🔁 Fallback for Command Palette
+		if (!uris.length) {
+			const editor = vscode.window.activeTextEditor;
+			if (editor) {
+				uris = [editor.document.uri];
+			}
+		}
+
+		if (!uris.length) {
+			vscode.window.showInformationMessage(
+				'Select files/folders in Explorer or open a file before running this command.'
+			);
 			return;
 		}
 
@@ -52,7 +62,8 @@ function activate(context) {
 			.join('\n\n');
 
 		await vscode.env.clipboard.writeText(lmmInput);
-		vscode.window.showInformationMessage('✅ Selected files copied to clipboard in LLM-ready format!');
+		showMessage('✅ Files copied!');
+		// vscode.window.setStatusBarMessage('✅ Files copied!', 3000);
 	});
 
 	// --------------------------
@@ -83,6 +94,15 @@ function activate(context) {
 	});
 
 	context.subscriptions.push(disposableCopyFiles, disposableOpenChatGPT);
+}
+
+function showMessage(msg, timeout = 3000) {
+	const disposable = vscode.window.showInformationMessage(msg);
+
+	setTimeout(() => {
+		console.log(disposable?.dispose);
+		disposable?.dispose();
+	}, timeout); // 3 seconds
 }
 
 // Recursive helper
