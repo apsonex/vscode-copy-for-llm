@@ -34,15 +34,18 @@
     "eslint": "^9.39.2",
     "sinon": "^21.0.1"
   },
+  "icon": "images/icon.png",
   "contributes": {
     "commands": [
       {
         "command": "copy-code-for-llm.copyFiles",
-        "title": "Copy: LLM"
+        "title": "Copy: LLM",
+        "icon": "$(clippy)"
       },
       {
         "command": "copy-code-for-llm.openSelection",
-        "title": "Copy: To ChatGPT"
+        "title": "Copy: To ChatGPT",
+        "icon": "$(chat)"
       }
     ],
     "menus": {
