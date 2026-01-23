@@ -12,6 +12,28 @@ const defaultBinaryExtensions = [
 	'.ttf', '.otf', '.woff', '.woff2', '.eot'
 ];
 
+const defaultExcludes = [
+	"**/.git/**",
+	"**/node_modules/**",
+	"**/dist/**",
+	"**/build/**",
+	"**/coverage/**",
+	"**/out/**",
+	"**/vendor/**",
+	"**/public/**",
+	"**/bin/**",
+	"**/obj/**",
+	"**/*.log",
+	"**/*.min.js",
+	"**/*.min.css",
+	"**/package-lock.json",
+	"**/yarn.lock",
+	"**/composer.lock",
+	"**/pnpm-lock.yaml",
+	"**/.DS_Store",
+	"**/Thumbs.db"
+];
+
 function activate(context) {
 	// --------------------------
 	// 1️⃣ Copy files/folders to clipboard in LLM format
@@ -81,6 +103,8 @@ function activate(context) {
 			const binaryExtensions = userBinaryExts.length > 0
 				? new Set(userBinaryExts.map(ext => ext.toLowerCase()))
 				: new Set(defaultBinaryExtensions.map(ext => ext.toLowerCase()));
+
+			console.log(binaryExtensions);
 
 			if (binaryExtensions.has(ext)) {
 				formattedFiles.push({
