@@ -11,11 +11,7 @@
   "engines": {
     "vscode": "^1.108.0"
   },
-  "main": "./extension.js",
-  "activationEvents": [
-    "onCommand:copy-code-for-llm.copyFiles",
-    "onCommand:copy-code-for-llm.openSelection"
-  ],
+  "main": "./src/index.js",
   "categories": [
     "Other"
   ],
@@ -43,7 +39,7 @@
         "icon": "$(clippy)"
       },
       {
-        "command": "copy-code-for-llm.openSelection",
+        "command": "copy-code-for-llm.copySelectedCodeToChatGPT",
         "title": "Copy: To ChatGPT",
         "icon": "$(chat)"
       }
@@ -52,29 +48,25 @@
       "explorer/context": [
         {
           "command": "copy-code-for-llm.copyFiles",
-          "title": "Copy: LLM"
+          "title": "Copy: LLM",
+          "group": "navigation"
         }
       ],
       "editor/context": [
         {
-          "command": "copy-code-for-llm.openSelection",
+          "command": "copy-code-for-llm.copySelectedCodeToChatGPT",
           "title": "Copy: To ChatGPT",
           "when": "editorHasSelection",
           "group": "navigation"
         }
       ],
-      "editor/title/context": [
-        {
-          "command": "copy-code-for-llm.copyFiles",
-          "group": "2_modification"
-        }
-      ],
+      "editor/title/context": [],
       "commandPalette": [
         {
           "command": "copy-code-for-llm.copyFiles"
         },
         {
-          "command": "copy-code-for-llm.openSelection"
+          "command": "copy-code-for-llm.copySelectedCodeToChatGPT"
         }
       ]
     },
