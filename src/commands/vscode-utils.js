@@ -18,14 +18,6 @@ function getAllFiles(dir) {
     return results;
 }
 
-async function fileStat(uri) {
-    const stat = await vscode.workspace.fs.stat(uri);
-
-    return {
-        path: uri.fsPath,
-        isFolder: stat.type === vscode.FileType.Directory,
-    };
-}
 function getAllFilesRecursivelyFromPaths(filePaths) {
     const allFiles = [];
     const processedPaths = new Set();
@@ -81,7 +73,6 @@ function showMessage(msg, timeout = 3000) {
 }
 
 module.exports = {
-    fileStat,
     getFilesFromClipboardApi,
     showMessage,
 }

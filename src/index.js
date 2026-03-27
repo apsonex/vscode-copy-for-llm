@@ -1,8 +1,6 @@
 const vscode = require('vscode');
 const fs = require('fs');
 const path = require('path');
-const { defaultBinaryExtensions } = require('./constants')
-
 const { copyFiles } = require('./commands/copy-llm');
 const { copySelectedCodeToChatGPT } = require('./commands/copy-to-chat');
 
@@ -21,8 +19,6 @@ function activate(context) {
             copySelectedCodeToChatGPT
         )
     );
-
-    console.log('activated');
 }
 
 function deactivate() {
