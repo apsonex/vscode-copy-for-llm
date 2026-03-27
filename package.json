@@ -12,6 +12,10 @@
     "vscode": "^1.108.0"
   },
   "main": "./src/index.js",
+  "activationEvents": [
+    "onCommand:copy-code-for-llm.copyFiles",
+    "onCommand:copy-code-for-llm.copySelectedCodeToChatGPT"
+  ],
   "categories": [
     "Other"
   ],
